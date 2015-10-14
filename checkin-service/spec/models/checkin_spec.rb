@@ -1,12 +1,9 @@
 require 'spec_helper'
 
 describe Checkin do
-
-  before(:each) do
-  	@ash = User.create(name:"Ash Ketchum", email: "ash@oaklab.com")
-  	@store = Location.create(store_name: "711")
-  	@checkin = Checkin.create(@ash.id, @store.id)
-  end
+  	let(:ash) { User.create(name:"Ash Ketchum", email: "ash@oaklab.com") }
+  	let(:store) { Location.create(store_name: "711") }
+  	let(:checkin) { Checkin.create({user_id: ash.id, location_id: store.id, points: 5}) }
 
   it 'can be created' do
     checkin = create :checkin
@@ -16,7 +13,7 @@ describe Checkin do
   describe '#points' do 
 
   	it 'should return the number of points for a given store/user combo' do
-  		expect(Checkin.points(@ash.id, @store.id)).to be >= 0
+  		expect(Checkin.points(ash.id,store.id)).to be >= 0
   	end
 
   end
@@ -25,14 +22,16 @@ describe Checkin do
 
   	it 'should create a new instance of a Checkin' do 
   		checkin_count = Checkin.all.count
-  		Checkin.check_in
+      p ash.id
+      p store.id
+  		Checkin.check_in(ash.id, store.id, 5)
   		expect(Checkin.all.count).to be > checkin_count
   	end
   	
   	it 'should add points to a Checkin after checking in' do
-	  	initial_points = Checkin.points(@ash.id, @store.id)
-	  	Checkin.check_in(@ash.id, @store.id)
-	  	expect(Checkin.points(@ash.id, store.id)).to be > initial_points
+	  	initial_points = Checkin.points(ash.id, store.id)
+	  	Checkin.check_in(ash.id, store.id, 5)
+	  	expect(Checkin.points(ash.id, store.id)).to be > initial_points
 	end
 	
   end
