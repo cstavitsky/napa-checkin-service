@@ -8,8 +8,8 @@ let(:store) { Location.new(name: "711") }
     expect(location).to_not be_nil
   end
 
-  it 'has a name that is a string' do
-    expect(store.name).to eq("711")
+  it 'has a store_name that is a string' do
+    expect(store.store_name).to eq("711")
   end
 
 end
