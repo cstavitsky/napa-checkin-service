@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Location do
-let(:store) { Location.new(name: "711") }
+let(:store) { Location.new(store_name: "711") }
 
   it 'can be created' do
     location = create :location
