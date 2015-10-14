@@ -1,6 +1,7 @@
 class Checkin < ActiveRecord::Base
 	belongs_to :contact
 	belongs_to :location
+	has_many :rewards
 
 	def self.points(user_id, location_id)
 		checkins = Checkin.where(user_id: user_id, location_id: location_id)
