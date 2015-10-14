@@ -9,3 +9,28 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20151014152622) do
+
+  create_table "checkins", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "store_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+end
