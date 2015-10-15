@@ -4,7 +4,7 @@ class CreateCheckins < ActiveRecord::Migration
       t.integer :user_id
       t.integer :location_id
       t.integer :points
-
+      
       t.timestamps
     end
   end

@@ -11,7 +11,7 @@ describe RewardsApi do
         it "returns an empty array of rewards" do
           get "/rewards"
           expect(last_response.status).to eq(200)
-          expect(JSON.parse(response.body)).to eq([])
+          expect(JSON.parse(last_response.body)).to eq({"data" => []})
         end
       end
 
