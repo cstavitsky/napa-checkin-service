@@ -10,6 +10,7 @@ class LocationsApi < Grape::API
 
   desc 'Create an location'
   params do
+    optional :store_name, type: String, desc: 'Name of the store'
   end
 
   post do
@@ -29,6 +30,7 @@ class LocationsApi < Grape::API
 
     desc 'Update an location'
     params do
+        optional :store_name, type: String, desc: 'Name of the store'
     end
     put do
       # fetch location record and update attributes.  exceptions caught in app.rb

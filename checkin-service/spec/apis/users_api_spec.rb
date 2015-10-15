@@ -11,7 +11,7 @@ describe UsersApi do
         it "returns an empty array of users" do
           get "/users"
           expect(last_response.status).to eq(200)
-          expect(JSON.parse(response.body)).to eq([])
+          expect(JSON.parse(response.body)).to eq({"data" => []})
         end
       end
 

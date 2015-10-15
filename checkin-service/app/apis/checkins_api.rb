@@ -10,6 +10,9 @@ class CheckinsApi < Grape::API
 
   desc 'Create an checkin'
   params do
+    optional :user_id, type: Integer, desc: 'The User checking in'
+    optional :location_id, type: Integer, desc: 'The Location being checked into'
+    optional :points, type: Integer, desc: 'Amount of points gained by this checkin'
   end
 
   post do
@@ -29,6 +32,9 @@ class CheckinsApi < Grape::API
 
     desc 'Update an checkin'
     params do
+      optional :user_id, type: Integer, desc: 'The User checking in'
+      optional :location_id, type: Integer, desc: 'The Location being checked into'
+      optional :points, type: Integer, desc: 'Amount of points gained by this checkin'
     end
     put do
       # fetch checkin record and update attributes.  exceptions caught in app.rb

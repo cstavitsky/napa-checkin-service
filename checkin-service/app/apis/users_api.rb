@@ -10,6 +10,8 @@ class UsersApi < Grape::API
 
   desc 'Create an user'
   params do
+    optional :name, type: String, desc: 'User name'
+    optional :email, type: String, desc: 'User email'
   end
 
   post do
@@ -29,6 +31,8 @@ class UsersApi < Grape::API
 
     desc 'Update an user'
     params do
+      optional :name, type: String, desc: 'User name'
+      optional :email, type: String, desc: 'User email'
     end
     put do
       # fetch user record and update attributes.  exceptions caught in app.rb

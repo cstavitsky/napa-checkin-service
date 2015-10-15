@@ -11,7 +11,7 @@ describe LocationsApi do
         it "returns an empty array of locations" do
           get "/locations"
           expect(last_response.status).to eq(200)
-          expect(JSON.parse(response.body)).to eq([])
+          expect(JSON.parse(last_response.body)).to eq({"data" => []})
         end
       end
 

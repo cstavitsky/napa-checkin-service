@@ -2,7 +2,10 @@ class ApplicationApi < Grape::API
   format :json
   extend Napa::GrapeExtenders
 
-  mount HelloApi => '/'
+  mount UsersApi => '/users'
+  mount CheckinsApi => '/checkins'
+  mount LocationsApi => '/locations'
+  mount RewardsApi => '/rewards'
 
   add_swagger_documentation
 end
