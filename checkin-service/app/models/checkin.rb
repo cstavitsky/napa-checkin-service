@@ -22,6 +22,7 @@ class Checkin < ActiveRecord::Base
 
 	def self.redeem_points(reward, user_id, location_id)
 		if Checkin.points(user_id, location_id) >= reward.point_value
+			reward.times_redeemed += 1
 			Checkin.create(user_id: user_id, location_id: location_id, points: -reward.point_value)
 		else
 			false

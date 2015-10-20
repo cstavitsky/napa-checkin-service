@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151014214548) do
     t.string   "name"
     t.integer  "point_value"
     t.integer  "checkin_id"
+    t.integer  "times_redeemed", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
