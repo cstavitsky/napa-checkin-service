@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20151014214548) do
   create_table "checkins", force: true do |t|
     t.integer  "user_id"
     t.integer  "location_id"
+    t.integer  "reward_id"
     t.integer  "points"
     t.datetime "created_at"
     t.datetime "updated_at"

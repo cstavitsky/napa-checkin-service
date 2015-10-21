@@ -25,7 +25,7 @@ class Checkin < ActiveRecord::Base
 			reward.times_redeemed += 1
 			Checkin.create(user_id: user_id, location_id: location_id, points: -reward.point_value)
 		else
-			false
+			[Checkin.last]
 		end
 	end
 

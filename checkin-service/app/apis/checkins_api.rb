@@ -28,10 +28,8 @@ class CheckinsApi < Grape::API
     optional :reward_id, type: Integer, desc: 'The Reward being redeemed'
   end
 
-  redeem do
-    reward = Reward.find(reward_id)
-    checkin = Checkin.redeem_points(reward, user_id, location_id)
-    represent checkin, with: CheckinRepresenter
+  post do
+
   end
 
   params do
