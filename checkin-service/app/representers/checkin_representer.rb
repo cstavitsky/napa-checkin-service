@@ -3,4 +3,5 @@ class CheckinRepresenter < Napa::Representer
   property :location_id
   property :user_id
   property :points
+  property :reward_id
 end
