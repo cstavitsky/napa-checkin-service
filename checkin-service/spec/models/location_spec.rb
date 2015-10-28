@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Location do
-let(:store) { Location.new(store_name: "711") }
+  let(:store) { Location.new(store_name: '711') }
 
   it 'can be created' do
     location = create :location
@@ -9,7 +9,6 @@ let(:store) { Location.new(store_name: "711") }
   end
 
   it 'has a store_name that is a string' do
-    expect(store.store_name).to eq("711")
+    expect(store.store_name).to eq('711')
   end
-
 end

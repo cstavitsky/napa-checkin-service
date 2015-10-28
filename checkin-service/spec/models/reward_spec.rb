@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe Reward do
-
-let(:reward) { Reward.create(point_value: 50, name: "free coffee") }
+  let(:reward) { Reward.create(point_value: 50, name: 'free coffee') }
   it 'can be created' do
     reward = create :reward
     expect(reward).to_not be_nil
@@ -15,5 +14,4 @@ let(:reward) { Reward.create(point_value: 50, name: "free coffee") }
   it 'has a string name' do
     expect(reward.name).to be_a String
   end
-
 end
