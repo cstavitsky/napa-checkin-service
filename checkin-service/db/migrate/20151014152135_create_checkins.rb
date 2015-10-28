@@ -5,7 +5,7 @@ class CreateCheckins < ActiveRecord::Migration
       t.integer :location_id
       t.integer :reward_id
       t.integer :points
-      
+
       t.timestamps
     end
   end

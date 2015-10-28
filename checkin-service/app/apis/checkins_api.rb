@@ -20,7 +20,6 @@ class CheckinsApi < Grape::API
     represent checkin, with: CheckinRepresenter
   end
 
-  # have no idea if this will work--creating api method beyond scope of REST conventions
   desc 'Redeem a reward'
   params do
     optional :user_id, type: Integer, desc: 'The User checking in'

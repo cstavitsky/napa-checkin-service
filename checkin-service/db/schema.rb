@@ -11,36 +11,34 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20151014214548) do
-
-  create_table "checkins", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "location_id"
-    t.integer  "reward_id"
-    t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'checkins', force: true do |t|
+    t.integer 'user_id'
+    t.integer 'location_id'
+    t.integer 'reward_id'
+    t.integer 'points'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "locations", force: true do |t|
-    t.string   "store_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'locations', force: true do |t|
+    t.string 'store_name'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "rewards", force: true do |t|
-    t.string   "name"
-    t.integer  "point_value"
-    t.integer  "checkin_id"
-    t.integer  "times_redeemed", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'rewards', force: true do |t|
+    t.string 'name'
+    t.integer 'point_value'
+    t.integer 'checkin_id'
+    t.integer 'times_redeemed', default: 0
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'users', force: true do |t|
+    t.string 'name'
+    t.string 'email'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
-
 end

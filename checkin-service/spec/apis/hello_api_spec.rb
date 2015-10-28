@@ -13,5 +13,4 @@ describe HelloApi do
       expect(response_body).to eq({ message: 'Hello Wonderful World, from Checkin-service!' }.to_json)
     end
   end
-
 end

@@ -9,5 +9,4 @@ class ApplicationApi < Grape::API
   mount RedemptionsApi => '/redemptions'
 
   add_swagger_documentation
-  
 end

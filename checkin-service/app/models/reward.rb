@@ -1,3 +1,3 @@
 class Reward < ActiveRecord::Base
-	belongs_to :checkin
+  belongs_to :checkin
 end
