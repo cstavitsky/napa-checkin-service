@@ -10,6 +10,8 @@ class RewardsApi < Grape::API
 
   desc 'Create an reward'
   params do
+    optional :name, type: String, desc: 'Reward name'
+    optional :point_value, type: Integer, desc: 'Reward point value'
   end
 
   post do
@@ -29,6 +31,8 @@ class RewardsApi < Grape::API
 
     desc 'Update an reward'
     params do
+      optional :name, type: String, desc: 'Reward name'
+      optional :point_value, type: Integer, desc: 'Reward point value'
     end
     put do
       # fetch reward record and update attributes.  exceptions caught in app.rb

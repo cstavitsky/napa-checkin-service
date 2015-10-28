@@ -25,8 +25,6 @@ describe Checkin do
 
   	it 'should create a new instance of a Checkin' do 
   		checkin_count = Checkin.all.count
-      p ash.id
-      p store.id
   		Checkin.check_in(ash.id, store.id, 5)
   		expect(Checkin.all.count).to be > checkin_count
   	end
@@ -43,25 +41,24 @@ describe Checkin do
     let(:ash) { User.create(name:"Ash Ketchum", email: "ash@oaklab.com") }
     let(:store) { Location.create(store_name: "711") }
     let(:checkin) { Checkin.create({user_id: ash.id, location_id: store.id, points: 5}) }
-  	let(:coffee_reward) { Reward.create(name: "free coffee", point_value: 50) }
+  	let(:coffee_reward) { Reward.create(name: "free coffee", point_value: 2) }
 
   	it 'should return false if user does not have enough points at this location' do
       expect(Checkin.redeem_points(coffee_reward, ash.id, store.id)).to be_falsey
   	end
 
   	it 'should add a new Checkin if user has enough points' do 
-  		11.times do |i|
-  			Checkin.check_in(coffee_reward, ash.id, store.id)
-  		end
-  		expect(Checkin.redeem_points(coffee_reward, ash.id, store.id)).to be_truthy
+  		Checkin.check_in(ash.id, store.id, 5)
+      expect(Checkin.redeem_points(coffee_reward, ash.id, store.id)).to be_truthy
   	end
 
   	it 'should add a new Checkin with negative points equal to reward point_value' do 
-  		11.times do |i|
-  			Checkin.check_in(coffee_reward, ash.id, store.id)
-  		end
+    #   11.times do |i|
+    #     Checkin.check_in(ash.id, store.id, 5)
+  		# end
+      Checkin.check_in(ash.id, store.id, 5)
   		Checkin.redeem_points(coffee_reward, ash.id, store.id)
-  		expect(Checkin.points(ash.id, store.id)).to eq(5)
+  		expect(Checkin.points(ash.id, store.id)).to eq(3)
   	end
   end
 
